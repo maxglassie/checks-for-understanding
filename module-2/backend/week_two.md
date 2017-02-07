@@ -5,6 +5,8 @@ Fork this respository. Answer the questions to the best of your ability. Try to 
 Note: When you're done, submit a PR. 
 
 1. At a high level, what is ActiveRecord? What does it do/allow you to do?
+AR is an object relational mapper. It essentially translates the rows of a database into Ruby object instances that we can use standard OOP on. Rows are objects with the column values as attributes, and tables are classes. Fundamentally, it allows us to push the management of state to the database and have the application itself be written in a functional style in response to HTTP requests.
+
 2. Assume you have the following model:
 
 ```ruby
@@ -13,8 +15,17 @@ end
 ```
 
 What are some methods you can call on `Team`? If these methods aren't defined in the class, how do you have access to them?
+find / find_by
+destroy
+update
+find_or_create_by
+
+They are built into AR as ways of querying and interacting with the database for instances of the class Team (team corresponds to the table). 
 
 3. Assume that in your database, a team has the following attributes: "id", "name", owner_id". How would you find the name of a team with an id of 4? Assuming your class only included the code from question 2, how could you find the owner of the same team?
+team = Team.find(4)
+id = team.owner_id
+Owner.find(id)
 
 4. Assume that you added a line to your `Team` class as follows:
 
@@ -26,12 +37,28 @@ end
 
 Now how would you find the owner of the team with an id of 4?
 
+team = Team.find(4)
+team.owner
+
 3. What do they allow you to do?
+I'm confused. Who are they?
 7. In a database that's holding students and teachers, what will be the relationship between students and teachers? Draw the schema diagram.
+
+teacher (n) |has| (n) student
+
 8. Define foreign key, primary key, and schema.
+Primary key is the unique identifier for a row. 
+Foreign key is the primary key of a row in another table that is linked to the current table.
+Schema is the overall database design.
+
 9. Describe the relationship between a foreign key on one table and a primary key on another table.
+The primary key of a table is the foreign key on the table it is linked to. Ex: Student - student_id (primary key), name, teacher_id
+
 10. What are the parts of an HTTP response?
+params
+
 11. Describe some techniques to make our Sinatra code more DRY. Give an example of when you would use these techniques.
+
 
 
 ### Optional Questions
