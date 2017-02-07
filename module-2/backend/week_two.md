@@ -55,19 +55,30 @@ Schema is the overall database design.
 The primary key of a table is the foreign key on the table it is linked to. Ex: Student - student_id (primary key), name, teacher_id
 
 10. What are the parts of an HTTP response?
-params
+I don't really understand. Do you mean params? 
 
 11. Describe some techniques to make our Sinatra code more DRY. Give an example of when you would use these techniques.
-
+using a partial for html forms, so we don't have to repeat it.
 
 
 ### Optional Questions
 
 1. Name your five favorite ActiveRecord methods (i.e. methods your models inherit from ActiveRecord) and describe what they do.
+group - does the equivalent of group_by in SQL. it's an aggregate function.
+select - selects a given set of columns from the tables
+find_by - equivalent to WHERE 
 2. Name your three favorite ActiveRecord rake tasks and describe what they do.
+rake db:reset - drops, creates, runs migrations, and seeds - it's an all-in-one
+rake db:seed - seeds the database from a given set of data
+
 4. What can you expect from a group as you begin working together? As you continue working together?
+There will always be forming, storming, norming, and stopping. 
+Frequently, people have different approaches and work styles, and the priorities one person has and thinks are important are going to be different than the other... this will need to miscommunications. 
+
 5. What two columns does `t.timestamps null: false` create in our database?
+created_at, modified_at
 6. What cURL flag can you use to send a `POST` request?
+update
 7. What case does JSON (and JavaScript) use for multi-word variables?
 8. What case does Ruby use for multi-word variables?
 9. In a database that's holding schools and teachers, what will be the relationship between schools and teachers?
